@@ -1,0 +1,11 @@
+<h1>New toilet</h1>
+<%= render 'form' %>
+<%= javascript_tag do%>
+  var latlng ={ 0: <%= @toilet.latitude %>, 1:  <%= @toilet.longitude %>}; 
+  var google_latlng = new google.maps.LatLng( latlng[0], latlng[1] );
+  initialize( latlng ) ;
+  get_address( google_latlng, set_address  );
+<% end %>
+
+
+<%= link_to 'Back', toilets_path %>

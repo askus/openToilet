@@ -1,0 +1,48 @@
+<%= form_for(@toilet) do |f| %>
+  <% if @toilet.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@toilet.errors.count, "error") %> prohibited this toilet from being saved:</h2>
+
+      <ul>
+      <% @toilet.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div id="map">
+  </div>
+  <div class="hidden">
+    <%= f.hidden_field :latitude %>
+    <%= f.hidden_field :longitude %>
+  </div>
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :address %>
+    <%= f.text_area :address %>
+  </div> 
+  <div class="field">
+  </div>
+  <div class="field">
+    <%= f.check_box :has_male %>
+    <%= image_tag "/image/has_male.png" , :border=>0, :class =>'toilet-icon' %>
+    <%= f.check_box :has_female %>
+    <%= image_tag "/image/has_female.png" , :border=>0, :class =>'toilet-icon' %>
+    <%= f.check_box :has_both %>
+    <%= image_tag "/image/has_both.png" , :border=>0, :class =>'toilet-icon' %>
+    <%= f.check_box :has_free_access %>
+    <%= image_tag "/image/has_free_access.png" , :border=>0, :class =>'toilet-icon' %>
+    <%= f.check_box :has_family %>
+    <%= image_tag "/image/has_family.png" , :border=>0, :class =>'toilet-icon' %>
+  </div> 
+  <div class="field">
+    
+  </div>
+   
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

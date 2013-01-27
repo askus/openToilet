@@ -1,0 +1,3 @@
+module ToiletsHelper
+
+end

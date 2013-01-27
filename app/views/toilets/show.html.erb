@@ -1,0 +1,8 @@
+<p id="notice"><%= notice %></p>
+
+<div id='toilet'> 
+  <div>name: <%= @toilet.name %></div>
+  <div>address: <%= @toilet.address %></div>
+</div>
+<%= link_to 'Edit', edit_toilet_path(@toilet) %> |
+<%= link_to 'Back', toilets_path %>

@@ -1,0 +1,37 @@
+<h1>Listing toilet_ratings</h1>
+
+<table>
+  <tr>
+    <th>Toilet</th>
+    <th>Cleanness</th>
+    <th>Safety</th>
+    <th>Privacy</th>
+    <th>Comfort</th>
+    <th>Has hook</th>
+    <th>Has tissue</th>
+    <th>Comment</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @toilet_ratings.each do |toilet_rating| %>
+  <tr>
+    <td><%= toilet_rating.toilet_id %></td>
+    <td><%= toilet_rating.cleanness %></td>
+    <td><%= toilet_rating.safety %></td>
+    <td><%= toilet_rating.privacy %></td>
+    <td><%= toilet_rating.comfort %></td>
+    <td><%= toilet_rating.has_hook %></td>
+    <td><%= toilet_rating.has_tissue %></td>
+    <td><%= toilet_rating.comment %></td>
+    <td><%= link_to 'Show', toilet_rating %></td>
+    <td><%= link_to 'Edit', edit_toilet_rating_path(toilet_rating) %></td>
+    <td><%= link_to 'Destroy', toilet_rating, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Toilet rating', new_toilet_rating_path %>

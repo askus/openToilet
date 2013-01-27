@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Toilet:</b>
+  <%= @toilet_rating.toilet_id %>
+</p>
+
+<p>
+  <b>Cleanness:</b>
+  <%= @toilet_rating.cleanness %>
+</p>
+
+<p>
+  <b>Safety:</b>
+  <%= @toilet_rating.safety %>
+</p>
+
+<p>
+  <b>Privacy:</b>
+  <%= @toilet_rating.privacy %>
+</p>
+
+<p>
+  <b>Comfort:</b>
+  <%= @toilet_rating.comfort %>
+</p>
+
+<p>
+  <b>Has hook:</b>
+  <%= @toilet_rating.has_hook %>
+</p>
+
+<p>
+  <b>Has tissue:</b>
+  <%= @toilet_rating.has_tissue %>
+</p>
+
+<p>
+  <b>Comment:</b>
+  <%= @toilet_rating.comment %>
+</p>
+
+
+<%= link_to 'Edit', edit_toilet_rating_path(@toilet_rating) %> |
+<%= link_to 'Back', toilet_ratings_path %>

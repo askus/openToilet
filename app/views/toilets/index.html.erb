@@ -1,0 +1,75 @@
+<div id="content" >
+  <div id="map"></div>
+<%= javascript_tag do %>
+var map ;
+var center;
+var markerArray; 
+var directionDisplay;
+var directionsService = new google.maps.DirectionsService();
+ 
+/* this must do after div map*/
+if( navigator.geolocation ) {
+        navigator.geolocation.getCurrentPosition(
+                function(pos){
+                        var coords = pos.coords ;
+                        var lat = coords.latitude ; 
+                        var lng = coords.longitude;
+                        center = new google.maps.LatLng( lat, lng);
+                        $.get( "/toilets.json", {lat: lat, lng: lng}, init_map ) ; 
+                        init_link( center );
+                }
+        );
+}
+
+<% end %> 
+<p/>
+<div id="toilet">
+<div class="name"> </div>
+<div class="address"> </div>
+<div class="type">
+<span class="has_male"></span>
+<span class="has_female"></span>
+<span class="has_both"></span>
+<span class="has_free_access"></span>
+<span class="has_family"></span>
+</div>
+</div>
+<p/><p/>
+
+<div id= "score">
+<div class="cleanness">乾淨度：<span class="value"></span></div>
+<div class="safety">安全感：<span class="value"></span></div>
+<div class="privacy">隱私度：<span class="value"></span></div>
+<div class="comfort">舒適度：<span class="value"></span></div>
+</div>
+
+<div id="comment"></div>
+<div id="scoring"><%= link_to '評分廁所', new_toilet_rating_path %>  </div>
+
+<div id="condition">有條件搜尋
+<div class="option">
+<%= form_for( @condition_toilet) do |f| %>
+  <%= f.check_box(  :has_male,  :class=>"checkbox") %>
+  <%= image_tag( "/image/has_male.png", :border=>0, :class=>'toilet-icon') %> 
+  <%= f.check_box(  :has_female, :class=>"checkbox") %> 
+  <%= image_tag( "/image/has_female.png", :border=>0, :class=>'toilet-icon') %> 
+  <%= f.check_box(  :has_both, :class=>"checkbox") %> 
+  <%= image_tag( "/image/has_both.png", :border=>0, :class=>'toilet-icon') %> 
+  <%= f.check_box(  :has_free_access, :class=>"checkbox") %> 
+  <%= image_tag( "/image/has_free_access.png", :border=>0, :class=>'toilet-icon') %> 
+  <%= f.check_box(  :has_family, :class=>"checkbox") %> 
+  <%= image_tag( "/image/has_family.png", :border=>0, :class=>'toilet-icon') %> 
+<% end %>
+<%= javascript_tag do %>
+  set_condition_search_button();
+<% end %>
+</div>
+</div>
+<div id="new"><%= link_to '新增廁所', new_toilet_path%> </div>
+
+
+<div id="about">
+關於openToilet 聯絡資訊
+</div>
+
+</div>

@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  toilet_id: 1
+  cleanness: 1
+  safety: 1
+  privacy: 1
+  comfort: 1
+  has_hook: false
+  has_tissue: false
+  comment: MyText
+
+two:
+  toilet_id: 1
+  cleanness: 1
+  safety: 1
+  privacy: 1
+  comfort: 1
+  has_hook: false
+  has_tissue: false
+  comment: MyText
